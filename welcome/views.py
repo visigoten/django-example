@@ -6,6 +6,8 @@ from django.http import HttpResponse
 from . import database
 from .models import PageView
 
+import socket
+
 # Create your views here.
 
 def index(request):
@@ -27,8 +29,12 @@ def health(request):
 def info(request):
     """info"""
 
+    my_hostname = socket.gethostname()
+    
     text = """
         <h1>Hostname: {}</h1>
-    """.format(request.get_host())
+        <h2>Hostname: {}</h2>
+    """.format(request.get_host(),my_hostname)
+    
 
     return HttpResponse(text)
