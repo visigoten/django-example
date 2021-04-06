@@ -22,7 +22,7 @@ from welcome.views import index, health
 urlpatterns = [
     path('', index, name='home'),
     path('health/', health),
-    path('health/', info),
+    path('info/', info),
     path('admin/', admin.site.urls),
 ]
 
